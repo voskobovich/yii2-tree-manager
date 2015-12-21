@@ -1,0 +1,205 @@
+.dd-nestable {
+    display: block;
+    font-size: 13px;
+    list-style: none;
+    margin-bottom: 10px;
+    max-width: 924px;
+    padding: 0;
+    position: relative;
+}
+
+.dd-list {
+    display: block;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    position: relative;
+}
+
+.dd-list .dd-list {
+    padding-left: 34px;
+}
+
+.dd-collapsed .dd-list {
+    display: none;
+}
+
+.dd-item,
+.dd-empty,
+.dd-placeholder {
+    display: block;
+    font-size: 13px;
+    margin: 0;
+    min-height: 20px;
+    padding: 0;
+    position: relative;
+}
+
+.dd-item > .dd-button {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    display: block;
+    float: left;
+    font-weight: bold;
+    height: 34px;
+    overflow: hidden;
+    padding: 0;
+    position: relative;
+    text-align: center;
+    text-indent: 100%;
+    white-space: nowrap;
+    width: 25px;
+    line-height: 0px;
+}
+
+.dd-item > .dd-button:focus,
+.dd-item > .dd-edit:focus {
+    outline: none;
+    border: none;
+}
+
+.dd-item > .dd-button:before {
+    content: '+';
+    display: block;
+    position: absolute;
+    text-align: center;
+    text-indent: 0;
+    width: 100%;
+}
+
+.dd-item > .dd-button[data-action="collapse"]:before {
+    content: '-';
+}
+
+.dd-placeholder,
+.dd-empty {
+    background: #f2fbff;
+    border: 1px dashed #b6bcbf;
+    box-sizing: border-box;
+    margin: 5px 0;
+    min-height: 30px;
+    moz-box-sizing: border-box;
+    padding: 0;
+}
+
+.dd-empty {
+    background-color: #e5e5e5;
+    border: 1px dashed #bbb;
+    min-height: 100px;
+}
+
+.dd-dragel {
+    pointer-events: none;
+    position: absolute;
+    z-index: 9999;
+}
+
+.dd-dragel .dd-handle {
+    background-color: #da4f49;
+    background-image: -moz-linear-gradient(top, #ee5f5b, #bd362f);
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ee5f5b), to(#bd362f));
+    background-image: -webkit-linear-gradient(top, #ee5f5b, #bd362f);
+    background-image: -o-linear-gradient(top, #ee5f5b, #bd362f);
+    background-image: linear-gradient(to bottom, #ee5f5b, #bd362f);
+    background-repeat: repeat-x;
+    border-color: #bd362f #bd362f #802420;
+    border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffee5f5b', endColorstr='#ffbd362f', GradientType=0);
+    filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+}
+
+.dd-content {
+    box-sizing: border-box;
+    line-height: 20px;
+    color: #333;
+    display: block;
+    font-weight: bold;
+    height: 34px;
+    margin: 5px 0;
+    moz-box-sizing: border-box;
+    padding: 5px 10px 5px 40px;
+    text-decoration: none;
+    cursor: pointer;
+    background-color: #f5f5f5;
+    background-image: -moz-linear-gradient(top, #ffffff, #e6e6e6);
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ffffff), to(#e6e6e6));
+    background-image: -webkit-linear-gradient(top, #ffffff, #e6e6e6);
+    background-image: -o-linear-gradient(top, #ffffff, #e6e6e6);
+    background-image: linear-gradient(to bottom, #ffffff, #e6e6e6);
+    background-repeat: repeat-x;
+    border: 1px solid #cccccc;
+    border-color: #e6e6e6 #e6e6e6 #bfbfbf;
+    border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+    border-bottom-color: #b3b3b3;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffffff', endColorstr='#ffe6e6e6', GradientType=0);
+    filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+}
+
+.dd-dragel > .dd-item > .dd-content {
+    margin: 0 0 5px 0;
+}
+
+.dd-item > .dd-button {
+    margin-left: 34px;
+}
+
+.dd-handle {
+    cursor: pointer;
+    left: 0;
+    margin: 0;
+    overflow: hidden;
+    position: absolute;
+    text-indent: 100%;
+    top: 0;
+    white-space: nowrap;
+    line-height: 26px;
+    width: 34px;
+    height: 34px;
+    background-color: #006dcc;
+    background-image: -moz-linear-gradient(top, #0088cc, #0044cc);
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#0088cc), to(#0044cc));
+    background-image: -webkit-linear-gradient(top, #0088cc, #0044cc);
+    background-image: -o-linear-gradient(top, #0088cc, #0044cc);
+    background-image: linear-gradient(to bottom, #0088cc, #0044cc);
+    background-repeat: repeat-x;
+    border-color: #0044cc #0044cc #002a80;
+    border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff0088cc', endColorstr='#ff0044cc', GradientType=0);
+    filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+}
+
+.dd-handle:before {
+    color: #fff;
+    content: '≡';
+    display: block;
+    font-size: 20px;
+    font-weight: normal;
+    left: 0;
+    position: absolute;
+    text-align: center;
+    text-indent: 0;
+    top: 3px;
+    width: 100%;
+}
+
+.dd-edit-panel {
+    display: none;
+    height: 63px;
+}
+
+.dd-input-name,
+.dd-input-url,
+.dd-input-bizrule {
+    display: block;
+    width: 100%;
+    min-height: 30px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.dd-input-name,
+.dd-input-url {
+    margin-bottom: 3px !important;
+}
