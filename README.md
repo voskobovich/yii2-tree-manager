@@ -6,10 +6,10 @@
 -----
 Виджет рассчитан на работу с поведениями Павла Зимакова:
 
-[Yii2 Adjacency List Behavior](https://github.com/paulzi/yii2-adjacency-list)
-[Yii2 Nested Sets Behavior](https://github.com/paulzi/yii2-nested-sets)
-[Yii2 Nested Intervals Behavior](https://github.com/paulzi/yii2-nested-intervals)
-[Yii2 Materialized Path Behavior](https://github.com/paulzi/yii2-materialized-path)
+[Yii2 Adjacency List Behavior](https://github.com/paulzi/yii2-adjacency-list)  
+[Yii2 Nested Sets Behavior](https://github.com/paulzi/yii2-nested-sets)  
+[Yii2 Nested Intervals Behavior](https://github.com/paulzi/yii2-nested-intervals)  
+[Yii2 Materialized Path Behavior](https://github.com/paulzi/yii2-materialized-path)  
 
 Отличная статья на [Хабре](http://habrahabr.ru/post/266155/).
 
