@@ -1,6 +1,6 @@
 {
   "name": "voskobovich/yii2-tree-manager",
-  "description": "Nested set editor using jquery.nestable plugin for Yii 2",
+  "description": "Tree Manager using jquery.nestable plugin for Yii 2",
   "keywords": [
     "widget",
     "nested sets",
