@@ -112,4 +112,9 @@ interface TreeInterface
      * @throws \yii\db\Exception
      */
     public function deleteWithChildren();
+
+    /**
+     * @return TreeQueryInterface
+     */
+    public function find();
 }

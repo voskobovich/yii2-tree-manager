@@ -121,7 +121,7 @@ class Nestable extends Widget
         /** @var ActiveRecord|TreeInterface $model */
         $model = new $this->modelClass;
 
-        /** @var ActiveRecord|TreeInterface[] $rootNodes */
+        /** @var ActiveRecord[]|TreeInterface[] $rootNodes */
         $rootNodes = $model::find()->roots()->all();
 
         if (!empty($rootNodes[0])) {
@@ -137,8 +137,10 @@ class Nestable extends Widget
     protected function getNode($node)
     {
         $items = [];
+        /** @var ActiveRecord[]|TreeInterface[] $children */
+        $children = $node->children;
 
-        foreach ($node->children as $n => $node) {
+        foreach ($children as $n => $node) {
             $items[$n]['id'] = $node->getPrimaryKey();
             $items[$n]['name'] = $node->getAttribute($this->nameAttribute);
             $items[$n]['children'] = $this->getNode($node);
