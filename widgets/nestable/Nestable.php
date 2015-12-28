@@ -114,7 +114,7 @@ class Nestable extends Widget
         if ($this->formFieldsCallable == null) {
             $this->formFieldsCallable = function ($form, $model) {
                 /** @var ActiveForm $form */
-                echo $form->field($model, 'name');
+                echo $form->field($model, $this->nameAttribute);
             };
         }
 
@@ -125,6 +125,7 @@ class Nestable extends Widget
         $rootNodes = $model::find()->roots()->all();
 
         if (!empty($rootNodes[0])) {
+            /** @var ActiveRecord|TreeInterface $items */
             $items = $rootNodes[0]->populateTree();
             $this->_items = $this->prepareItems($items);
         }
