@@ -264,9 +264,10 @@ class Nestable extends Widget
     {
         $options = [
             'namePlaceholder' => $this->getPlaceholderForName(),
-            'deleteAlert' => Yii::t('voskobovich/nestedsets',
+            'deleteAlert' => Yii::t('vendor/voskobovich/yii2-tree-manager/widgets/nestable',
                 'The nobe will be removed together with the children. Are you sure?'),
-            'newNodeTitle' => Yii::t('voskobovich/nestedsets', 'Enter the new node name'),
+            'newNodeTitle' => Yii::t('vendor/voskobovich/yii2-tree-manager/widgets/nestable',
+                'Enter the new node name'),
         ];
 
         $controller = Yii::$app->controller;
@@ -298,7 +299,7 @@ class Nestable extends Widget
      */
     public function getPlaceholderForName()
     {
-        return Yii::t('voskobovich/nestedsets', 'Node name');
+        return Yii::t('vendor/voskobovich/yii2-tree-manager/widgets/nestable', 'Node name');
     }
 
     /**
@@ -309,16 +310,16 @@ class Nestable extends Widget
         echo Html::beginTag('div', ['class' => "{$this->id}-nestable-menu"]);
 
         echo Html::beginTag('div', ['class' => 'btn-group']);
-        echo Html::button(Yii::t('voskobovich/nestedsets', 'Add node'), [
+        echo Html::button(Yii::t('vendor/voskobovich/yii2-tree-manager/widgets/nestable', 'Add node'), [
             'data-toggle' => 'modal',
             'data-target' => "#{$this->id}-new-node-modal",
             'class' => 'btn btn-success'
         ]);
-        echo Html::button(Yii::t('voskobovich/nestedsets', 'Collapse all'), [
+        echo Html::button(Yii::t('vendor/voskobovich/yii2-tree-manager/widgets/nestable', 'Collapse all'), [
             'data-action' => 'collapse-all',
             'class' => 'btn btn-default'
         ]);
-        echo Html::button(Yii::t('voskobovich/nestedsets', 'Expand all'), [
+        echo Html::button(Yii::t('vendor/voskobovich/yii2-tree-manager/widgets/nestable', 'Expand all'), [
             'data-action' => 'expand-all',
             'class' => 'btn btn-default',
             'style' => 'display: none'
@@ -417,16 +418,17 @@ HTML;
             ['class' => 'dd-input-name', 'placeholder' => $this->getPlaceholderForName()]);
 
         echo Html::beginTag('div', ['class' => 'btn-group']);
-        echo Html::button(Yii::t('voskobovich/nestedsets', 'Save'), [
+        echo Html::button(Yii::t('vendor/voskobovich/yii2-tree-manager/widgets/nestable', 'Save'), [
             'data-action' => 'save',
             'class' => 'btn btn-success btn-sm',
         ]);
-        echo Html::a(Yii::t('voskobovich/nestedsets', 'Advanced editing'), $item['update-url'], [
-            'data-action' => 'advanced-editing',
-            'class' => 'btn btn-default btn-sm',
-            'target' => '_blank'
-        ]);
-        echo Html::button(Yii::t('voskobovich/nestedsets', 'Delete'), [
+        echo Html::a(Yii::t('vendor/voskobovich/yii2-tree-manager/widgets/nestable', 'Advanced editing'),
+            $item['update-url'], [
+                'data-action' => 'advanced-editing',
+                'class' => 'btn btn-default btn-sm',
+                'target' => '_blank'
+            ]);
+        echo Html::button(Yii::t('vendor/voskobovich/yii2-tree-manager/widgets/nestable', 'Delete'), [
             'data-action' => 'delete',
             'class' => 'btn btn-danger btn-sm'
         ]);
