@@ -39,7 +39,7 @@ abstract class BaseAction extends Action
     public function findModel($id)
     {
         /** @var ActiveRecord $model */
-        $model = new $this->modelClass;
+        $model = $this->modelClass;
         /** @var ActiveRecord|TreeInterface $model */
         $model = $model::findOne($id);
 

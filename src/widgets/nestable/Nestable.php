@@ -119,7 +119,7 @@ class Nestable extends Widget
         }
 
         /** @var ActiveRecord|TreeInterface $model */
-        $model = new $this->modelClass;
+        $model = $this->modelClass;
 
         /** @var ActiveRecord[]|TreeInterface[] $rootNodes */
         $rootNodes = $model::find()->roots()->all();

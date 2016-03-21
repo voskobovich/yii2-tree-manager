@@ -20,7 +20,7 @@ class CreateNodeAction extends BaseAction
     public function run()
     {
         /** @var TreeInterface|ActiveRecord $model */
-        $model = new $this->modelClass;
+        $model = Yii::createObject($this->modelClass);
 
         $params = Yii::$app->getRequest()->getBodyParams();
         $model->load($params);
