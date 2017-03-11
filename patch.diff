@@ -1,0 +1,56 @@
+From b51a022602ec7d36f12ab8b160f9f476995e13e7 Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?=D0=95=D0=B2=D0=B3=D0=B5=D0=BD=D0=B8=D0=B9?=
+ <89125230101@mail.ru>
+Date: Tue, 27 Dec 2016 09:52:02 +0500
+Subject: [PATCH] fix Labels in modal box
+
+---
+ src/widgets/nestable/Nestable.php | 11 +++++++----
+ 1 file changed, 7 insertions(+), 4 deletions(-)
+
+diff --git a/src/widgets/nestable/Nestable.php b/src/widgets/nestable/Nestable.php
+index 3df1c1f..24fa465 100644
+--- a/src/widgets/nestable/Nestable.php
++++ b/src/widgets/nestable/Nestable.php
+@@ -119,7 +119,7 @@ class Nestable extends Widget
+         }
+ 
+         /** @var ActiveRecord|TreeInterface $model */
+-        $model = $this->modelClass;
++        $model = new $this->modelClass;
+ 
+         /** @var ActiveRecord[]|TreeInterface[] $rootNodes */
+         $rootNodes = $model::find()->roots()->all();
+@@ -348,6 +348,9 @@ class Nestable extends Widget
+     {
+         /** @var ActiveRecord $model */
+         $model = new $this->modelClass;
++        $newNodeString = Yii::t('vendor/voskobovich/yii2-tree-manager/widgets/nestable','New node');
++        $closeButtonString = Yii::t('vendor/voskobovich/yii2-tree-manager/widgets/nestable','Close');
++        $createNodeString = Yii::t('vendor/voskobovich/yii2-tree-manager/widgets/nestable','Create node');
+ 
+         echo <<<HTML
+ <div class="modal" id="{$this->id}-new-node-modal" tabindex="-1" role="dialog" aria-labelledby="newNodeModalLabel">
+@@ -362,7 +365,7 @@ HTML;
+         echo <<<HTML
+       <div class="modal-header">
+         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+-        <h4 class="modal-title" id="newNodeModalLabel">New node</h4>
++        <h4 class="modal-title" id="newNodeModalLabel">$newNodeString</h4>
+       </div>
+       <div class="modal-body">
+ HTML;
+@@ -372,8 +375,8 @@ HTML;
+         echo <<<HTML
+       </div>
+       <div class="modal-footer">
+-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+-        <button type="submit" class="btn btn-primary">Create node</button>
++        <button type="button" class="btn btn-default" data-dismiss="modal">$closeButtonString </button>
++        <button type="submit" class="btn btn-primary">$createNodeString</button>
+       </div>
+ HTML;
+         $form->end();
+-- 
+1.9.5.msysgit.0
+

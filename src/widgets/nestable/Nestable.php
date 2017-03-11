@@ -348,6 +348,9 @@ class Nestable extends Widget
     {
         /** @var ActiveRecord $model */
         $model = new $this->modelClass;
+        $labelNewNode = Yii::t('vendor/voskobovich/yii2-tree-manager/widgets/nestable','New node');
+        $labelCloseButton = Yii::t('vendor/voskobovich/yii2-tree-manager/widgets/nestable','Close');
+        $labelCreateNode = Yii::t('vendor/voskobovich/yii2-tree-manager/widgets/nestable','Create node');
 
         echo <<<HTML
 <div class="modal" id="{$this->id}-new-node-modal" tabindex="-1" role="dialog" aria-labelledby="newNodeModalLabel">
@@ -362,7 +365,7 @@ HTML;
         echo <<<HTML
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="newNodeModalLabel">New node</h4>
+        <h4 class="modal-title" id="newNodeModalLabel">$labelNewNode</h4>
       </div>
       <div class="modal-body">
 HTML;
@@ -372,8 +375,8 @@ HTML;
         echo <<<HTML
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="submit" class="btn btn-primary">Create node</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">$labelCloseButton</button>
+        <button type="submit" class="btn btn-primary">$labelCreateNode</button>
       </div>
 HTML;
         $form->end();
