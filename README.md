@@ -76,3 +76,8 @@ use \voskobovich\tree\manager\widgets\nestable\Nestable;
     'modelClass' => 'models\ModelName',
 ]) ?>
 ```
+
+Пример того, как выглядит виджет:
+-------------
+
+![Screenshot](http://s019.radikal.ru/i644/1708/64/5f8e8e986d3c.png)
