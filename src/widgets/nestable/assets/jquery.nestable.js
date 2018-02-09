@@ -354,9 +354,10 @@
                     parent_id: $(parent).data('id'),
                     prev_id: (prev.length ? prev.data('id') : 0),
                     next_id: (next.length ? next.data('id') : 0)
-                }
-            }).success(function () {
-                $.pjax.reload({container: '#' + tree.el.attr('id') + '-pjax'});
+                },
+                success: function () {
+                    $.pjax.reload({container: '#' + tree.el.attr('id') + '-pjax'});
+                },
             }).fail(function (jqXHR) {
                 alert(jqXHR.responseText);
             });
@@ -372,9 +373,10 @@
             $.ajax({
                 url: this.options.deleteUrl + '?id=' + id,
                 method: 'POST',
-                context: document.body
-            }).success(function (data, textStatus, jqXHR) {
-                $.pjax.reload({container: '#' + tree.el.attr('id') + '-pjax'});
+                context: document.body,
+	            success: function () {
+                    $.pjax.reload({container: '#' + tree.el.attr('id') + '-pjax'});
+                },
             }).fail(function (jqXHR) {
                 alert(jqXHR.responseText);
             });
@@ -396,11 +398,12 @@
                 context: document.body,
                 data: {
                     name: name.val()
-                }
-            }).success(function (data, textStatus, jqXHR) {
-                var editPanel = el.children('.' + tree.options.editPanelClass);
-                editPanel.removeClass(tree.options.inputOpenClass);
-                editPanel.slideUp(100);
+                },
+	            success: function () {
+                    var editPanel = el.children('.' + tree.options.editPanelClass);
+                    editPanel.removeClass(tree.options.inputOpenClass);
+                    editPanel.slideUp(100);
+                },
             }).fail(function (jqXHR) {
                 alert(jqXHR.responseText);
             });
