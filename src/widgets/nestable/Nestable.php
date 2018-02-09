@@ -206,16 +206,18 @@ class Nestable extends Widget
         $pluginOptions = $this->getPluginOptions();
         $pluginOptions = Json::encode($pluginOptions);
         $view->registerJs("$('#{$this->id}').nestable({$pluginOptions});");
+        // language=JavaScript
         $view->registerJs("
 			$('#{$this->id}-new-node-form').on('beforeSubmit', function(e){
                 $.ajax({
                     url: '{$this->getPluginOptions('createUrl')}',
                     method: 'POST',
-                    data: $(this).serialize()
-                }).success(function (data, textStatus, jqXHR) {
-                    $('#{$this->id}-new-node-modal').modal('hide')
-                    $.pjax.reload({container: '#{$this->id}-pjax'});
-                    window.scrollTo(0, document.body.scrollHeight);
+                    data: $(this).serialize(),
+                    success: function(data, textStatus, jqXHR) {
+	                    $('#{$this->id}-new-node-modal').modal('hide')
+	                    $.pjax.reload({container: '#{$this->id}-pjax'});
+	                    window.scrollTo(0, document.body.scrollHeight);
+                    },
                 }).fail(function (jqXHR) {
                     alert(jqXHR.responseText);
                 });
