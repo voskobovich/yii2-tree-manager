@@ -5,6 +5,7 @@ namespace voskobovich\tree\manager\widgets\nestable;
 use voskobovich\tree\manager\interfaces\TreeInterface;
 use Yii;
 use yii\base\InvalidConfigException;
+use yii\base\InvalidArgumentException;
 use yii\base\Widget;
 use yii\bootstrap\ActiveForm;
 use yii\db\ActiveRecord;
@@ -143,7 +144,9 @@ class Nestable extends Widget
 
         foreach ($children as $n => $node) {
             $items[$n]['id'] = $node->getPrimaryKey();
-            $items[$n]['name'] = $node->getAttribute($this->nameAttribute);
+            if(!is_string($node->{$this->nameAttribute}))
+                throw new InvalidArgumentException("Value must be a string");
+            $items[$n]['name'] = $node->{$this->nameAttribute};
             $items[$n]['children'] = $this->getNode($node);
             $items[$n]['update-url'] = Url::to([$this->advancedUpdateRoute, 'id' => $node->getPrimaryKey()]);
         }
@@ -393,7 +396,7 @@ HTML;
      * Распечатка одного уровня
      * @param $level
      */
-    private function printLevel($level)
+    protected function printLevel($level)
     {
         echo Html::beginTag('ol', ['class' => 'dd-list']);
 
@@ -408,7 +411,7 @@ HTML;
      * Распечатка одного пункта
      * @param $item
      */
-    private function printItem($item)
+    protected function printItem($item)
     {
         $htmlOptions = ['class' => 'dd-item'];
         $htmlOptions['data-id'] = !empty($item['id']) ? $item['id'] : '';
